@@ -1,0 +1,8 @@
+[console_scripts]
+debug_node = yolov8_ros.debug_node:main
+detect_3d_node = yolov8_ros.detect_3d_node:main
+object_track_ROS = yolov8_ros.object_track_ROS:main
+time_graph = yolov8_ros.time_graph:main
+tracking_node = yolov8_ros.tracking_node:main
+yolov8_node = yolov8_ros.yolov8_node:main
+

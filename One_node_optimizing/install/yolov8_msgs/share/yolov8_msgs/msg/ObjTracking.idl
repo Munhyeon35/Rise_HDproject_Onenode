@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from yolov8_msgs/msg/ObjTracking.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "geometry_msgs/msg/Vector3.idl"
+#include "std_msgs/msg/Header.idl"
+
+module yolov8_msgs {
+  module msg {
+    struct ObjTracking {
+      std_msgs::msg::Header header;
+
+      int16 object_id;
+
+      @verbatim (language="comment", text=
+        "Central point")
+      @unit (value="m")
+      geometry_msgs::msg::Point pos;
+
+      @verbatim (language="comment", text=
+        "Linear velocity")
+      @unit (value="m/s")
+      geometry_msgs::msg::Vector3 vel;
+    };
+  };
+};

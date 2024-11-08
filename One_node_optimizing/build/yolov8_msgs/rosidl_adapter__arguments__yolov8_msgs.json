@@ -1,0 +1,20 @@
+{
+  "package_name": "yolov8_msgs",
+  "non_idl_tuples": [
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/Point2D.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/Vector2.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/Pose2D.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/BoundingBox2D.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/BoundingBox3D.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/Mask.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/KeyPoint2D.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/KeyPoint2DArray.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/KeyPoint3D.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/KeyPoint3DArray.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/Detection.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/DetectionArray.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/SegmentCenters.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/Objects.msg",
+    "/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_msgs:msg/ObjTracking.msg"
+  ]
+}

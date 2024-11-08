@@ -1,0 +1,63 @@
+[0.464s] Invoking command in '/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_ros': AMENT_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs LD_LIBRARY_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/yolov8_ros build --build-base /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build install --record /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[0.635s] running egg_info
+[0.636s] creating ../../build/yolov8_ros/yolov8_ros.egg-info
+[0.636s] writing ../../build/yolov8_ros/yolov8_ros.egg-info/PKG-INFO
+[0.636s] writing dependency_links to ../../build/yolov8_ros/yolov8_ros.egg-info/dependency_links.txt
+[0.636s] writing entry points to ../../build/yolov8_ros/yolov8_ros.egg-info/entry_points.txt
+[0.636s] writing requirements to ../../build/yolov8_ros/yolov8_ros.egg-info/requires.txt
+[0.636s] writing top-level names to ../../build/yolov8_ros/yolov8_ros.egg-info/top_level.txt
+[0.636s] writing manifest file '../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.637s] reading manifest file '../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.638s] writing manifest file '../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.638s] running build
+[0.638s] running build_py
+[0.638s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build
+[0.638s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib
+[0.638s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.638s] copying yolov8_ros/yolov8_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.638s] copying yolov8_ros/tracker.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.638s] copying yolov8_ros/debug_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.638s] copying yolov8_ros/time_graph.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.638s] copying yolov8_ros/detect_3d_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.638s] copying yolov8_ros/tracking_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.639s] copying yolov8_ros/object_track_ROS.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.639s] copying yolov8_ros/__init__.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.639s] copying yolov8_ros/kalmanFilter.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.639s] running install
+[0.639s] running install_lib
+[0.639s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.639s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/yolov8_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/tracker.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/debug_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/time_graph.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/detect_3d_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/tracking_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/object_track_ROS.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/__init__.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/kalmanFilter.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.640s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/yolov8_node.py to yolov8_node.cpython-310.pyc
+[0.642s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/tracker.py to tracker.cpython-310.pyc
+[0.643s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/debug_node.py to debug_node.cpython-310.pyc
+[0.645s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/time_graph.py to time_graph.cpython-310.pyc
+[0.646s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/detect_3d_node.py to detect_3d_node.cpython-310.pyc
+[0.648s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/tracking_node.py to tracking_node.cpython-310.pyc
+[0.648s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/object_track_ROS.py to object_track_ROS.cpython-310.pyc
+[0.650s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/__init__.py to __init__.cpython-310.pyc
+[0.650s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/kalmanFilter.py to kalmanFilter.cpython-310.pyc
+[0.651s] running install_data
+[0.651s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/share/ament_index
+[0.651s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/share/ament_index/resource_index
+[0.651s] creating /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/share/ament_index/resource_index/packages
+[0.651s] copying resource/yolov8_ros -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/share/ament_index/resource_index/packages
+[0.651s] copying package.xml -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/share/yolov8_ros
+[0.651s] running install_egg_info
+[0.652s] Copying ../../build/yolov8_ros/yolov8_ros.egg-info to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info
+[0.653s] running install_scripts
+[0.669s] Installing debug_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.669s] Installing detect_3d_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.669s] Installing object_track_ROS script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.669s] Installing time_graph script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.669s] Installing tracking_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.669s] Installing yolov8_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.669s] writing list of installed files to '/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/install.log'
+[0.689s] Invoked command in '/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_ros' returned '0': AMENT_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs LD_LIBRARY_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/yolov8_ros build --build-base /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build install --record /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/install.log --single-version-externally-managed install_data

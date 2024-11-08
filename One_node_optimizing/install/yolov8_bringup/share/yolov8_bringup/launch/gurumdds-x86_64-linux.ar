@@ -1,0 +1,12 @@
+# GurumeNetworks,Inc. Software License.!!!!
+# Subject to the terms and conditions of GurumNetworks's Software License Agreement.
+# Don't edit this file.
+version: '2.2'
+feature: gurumdds-x86_64-linux
+feature_version: 3.1.9999
+issued_time: '2023-11-23T02:29:14.000Z'
+expiration_time: infinity
+maintenance_time: '2999-12-30T15:00:00.000Z'
+download_time: '2024-09-27T04:39:52.982Z'
+serial: 3sXy6q-3pZfke-2hNDhd-3tvYB2
+sign: 4168c4748043b622fcd576732cb2d004e3146e7be41717d1c3bdf0ee3ac84e64

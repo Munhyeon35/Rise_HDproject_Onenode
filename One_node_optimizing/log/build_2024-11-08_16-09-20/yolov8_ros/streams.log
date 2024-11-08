@@ -1,0 +1,29 @@
+[0.406s] Invoking command in '/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_ros': AMENT_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs LD_LIBRARY_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/yolov8_ros build --build-base /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build install --record /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[0.553s] running egg_info
+[0.553s] writing ../../build/yolov8_ros/yolov8_ros.egg-info/PKG-INFO
+[0.554s] writing dependency_links to ../../build/yolov8_ros/yolov8_ros.egg-info/dependency_links.txt
+[0.554s] writing entry points to ../../build/yolov8_ros/yolov8_ros.egg-info/entry_points.txt
+[0.554s] writing requirements to ../../build/yolov8_ros/yolov8_ros.egg-info/requires.txt
+[0.554s] writing top-level names to ../../build/yolov8_ros/yolov8_ros.egg-info/top_level.txt
+[0.555s] reading manifest file '../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.555s] writing manifest file '../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.555s] running build
+[0.555s] running build_py
+[0.555s] copying yolov8_ros/yolov8_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros
+[0.556s] running install
+[0.556s] running install_lib
+[0.556s] copying /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build/lib/yolov8_ros/yolov8_node.py -> /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[0.557s] byte-compiling /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/yolov8_node.py to yolov8_node.cpython-310.pyc
+[0.559s] running install_data
+[0.559s] running install_egg_info
+[0.560s] removing '/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info' (and everything under it)
+[0.560s] Copying ../../build/yolov8_ros/yolov8_ros.egg-info to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info
+[0.560s] running install_scripts
+[0.575s] Installing debug_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.575s] Installing detect_3d_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.575s] Installing object_track_ROS script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.575s] Installing time_graph script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.575s] Installing tracking_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.575s] Installing yolov8_node script to /home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/yolov8_ros
+[0.576s] writing list of installed files to '/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/install.log'
+[0.593s] Invoked command in '/home/hrc/HD-Robotic_camera/One_node_optimizing/yolov8_ros/yolov8_ros' returned '0': AMENT_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs LD_LIBRARY_PATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_ros/lib/python3.10/site-packages:/home/hrc/HD-Robotic_camera/One_node_optimizing/install/yolov8_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/yolov8_ros build --build-base /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/build install --record /home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_ros/install.log --single-version-externally-managed install_data

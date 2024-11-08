@@ -1,0 +1,15 @@
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/Point2D.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/Vector2.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/Pose2D.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/BoundingBox2D.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/BoundingBox3D.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/Mask.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/KeyPoint2D.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/KeyPoint2DArray.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/KeyPoint3D.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/KeyPoint3DArray.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/Detection.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/DetectionArray.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/SegmentCenters.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/Objects.idl
+/home/hrc/HD-Robotic_camera/One_node_optimizing/build/yolov8_msgs/rosidl_adapter/yolov8_msgs:msg/ObjTracking.idl
