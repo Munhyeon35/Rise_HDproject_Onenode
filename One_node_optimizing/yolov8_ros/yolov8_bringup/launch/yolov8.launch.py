@@ -25,7 +25,7 @@ def generate_launch_description():
     #
     # ARGS
     #
-    model_cmd = DeclareLaunchArgument("model", default_value="yolo11n-seg.pt")
+    model_cmd = DeclareLaunchArgument("model", default_value="yolov8n-seg.pt")
 
     device_cmd = DeclareLaunchArgument("device", default_value="cpu")
 
@@ -33,16 +33,16 @@ def generate_launch_description():
 
     threshold_cmd = DeclareLaunchArgument("threshold", default_value="0.5")
 
-    input_image_topic_cmd = DeclareLaunchArgument("input_image_topic", default_value="/camera_03/color/image_raw")
+    input_image_topic_cmd = DeclareLaunchArgument("input_image_topic", default_value="/camera/camera/color/image_raw")
 
     input_depth_topic_cmd = DeclareLaunchArgument(
         "input_depth_topic",
-        default_value="/camera_03/depth/image_raw",
+        default_value="/camera/camera/depth/image_rect_raw",
         description="Name of the input depth topic")
     
     input_depth_info_topic_cmd = DeclareLaunchArgument(
         "input_depth_info_topic",
-        default_value="/camera_03/depth/camera_info",
+        default_value="/camera/camera/depth/camera_info",
         description="Name of the input depth info topic")
     
 
@@ -53,7 +53,7 @@ def generate_launch_description():
 
     target_frame_cmd = DeclareLaunchArgument(
         "target_frame",
-        default_value="camera_03_link",              ##  camera_02_link   / odom   // camera_link [astra pro plus]
+        default_value="camera_link",              ##  camera_02_link   / odom   // camera_link [astra pro plus]
         description="Target frame to transform the 3D boxes")
     
     model = LaunchConfiguration("model")
@@ -66,12 +66,6 @@ def generate_launch_description():
     input_depth_info_topic = LaunchConfiguration("input_depth_info_topic")
     input_depth_topic = LaunchConfiguration("input_depth_topic")
     target_frame = LaunchConfiguration("target_frame")
-
-    # tracker = LaunchConfiguration("tracker")
-    # tracker_cmd = DeclareLaunchArgument(
-    #     "tracker",
-    #     default_value="bytetrack.yaml",
-    #     description="Tracker name or path")
 
 
     #
@@ -88,9 +82,9 @@ def generate_launch_description():
             "enable": enable,
             "threshold": threshold,
             "image_reliability": image_reliability,
-            "topic_name": input_image_topic,
         }],
         remappings=[
+            ("topic_name", input_image_topic),
             ("depth_image", input_depth_topic),
             ("depth_info", input_depth_info_topic),
         ]
@@ -115,17 +109,6 @@ def generate_launch_description():
                     ]
     )
 
-    # debug_node_cmd = Node(
-    #     package="yolov8_ros",
-    #     executable="debug_node",
-    #     name="debug_node",
-    #     namespace=namespace,
-    #     parameters=[{"image_reliability": image_reliability}],
-    #     remappings=[
-    #         ("image_raw", input_image_topic),
-    #         ("detections", "tracking")
-    #     ]
-    # )
 
     ld = LaunchDescription()
 
@@ -144,6 +127,4 @@ def generate_launch_description():
     ld.add_action(time_graph_cmd)
     
     
-    # ld.add_action(debug_node_cmd)
-
     return ld

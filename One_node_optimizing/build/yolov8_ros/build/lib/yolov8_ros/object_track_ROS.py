@@ -40,30 +40,6 @@ class MotNode(Node) :
 
 	tracker = Tracker(150, 10, 5) # dist_threshold : for 150 pixel distance can be same obj, max_frame_skipped : frame time-to-live, max_trace_length : trace until num
 
-	# def str2bool(v):
-	#     if v.lower() in ('yes', 'true', 't', 'y', '1'):
-	#         return True
-	#     elif v.lower() in ('no', 'false', 'f', 'n', '0'):
-	#         return False
-	#     else:
-	#         raise argparse.ArgumentTypeError('Boolean value expected.')
-
-	# def parse_args(argv=None):
-	#     parser = argparse.ArgumentParser(
-	# 						description='mot argument parser')
-	#     parser.add_argument('--cam_fixed',
-	# 	 					dest="cam_fixed", type=str2bool, help='Whether or not to use a camera fixed or attached to a robot')
-	#     parser.add_argument('--fixed_cam_frame_id',
-	# 	 					dest="fixed_cam_frame_id", type=str, help='Frame ID of fixed camera')
-	#     parser.add_argument('--robot_cam_frame_id',
-	# 						dest="robot_cam_frame_id", type=str, help='Frame ID of attached camera')
-
-	#     parser.set_defaults(cam_fixed=True, fixed_cam_frame_id="camera_link", robot_cam_frame_id="base_link")
-
-	#     global args
-	#     args0 = rospy.myargv()
-	#     args = parser.parse_args(args0[1:])
-
 	def __init__(self) -> None :
 		super().__init__('mot_node')
 		self.declare_parameter("camera_link", "camera_link") 							

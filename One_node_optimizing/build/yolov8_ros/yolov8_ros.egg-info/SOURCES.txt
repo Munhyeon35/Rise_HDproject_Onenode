@@ -14,10 +14,9 @@ test/test_flake8.py
 test/test_pep257.py
 yolov8_ros/__init__.py
 yolov8_ros/debug_node.py
-yolov8_ros/detect_3d_node.py
 yolov8_ros/kalmanFilter.py
 yolov8_ros/object_track_ROS.py
+yolov8_ros/plot_node.py
 yolov8_ros/time_graph.py
 yolov8_ros/tracker.py
-yolov8_ros/tracking_node.py
 yolov8_ros/yolov8_node.py

@@ -47,7 +47,7 @@ class Yolov8Node(Node):
         super().__init__("yolov8_node")
 
         # params
-        self.declare_parameter("model", "yolo11n-seg.pt")
+        self.declare_parameter("model", "yolov8n-seg.pt")
         self.model = self.get_parameter(
             "model").get_parameter_value().string_value      
 
@@ -62,9 +62,6 @@ class Yolov8Node(Node):
         self.declare_parameter("enable", True)
         self.enable = self.get_parameter(
             "enable").get_parameter_value().bool_value
-        
-        self.declare_parameter("topic_name","/camera/camera/color/image_raw")
-        self.topic_name = self.get_parameter("topic_name").get_parameter_value().string_value
 
         self.declare_parameter("maximum_detection_threshold", 0.3)
         self.maximum_detection_threshold = self.get_parameter(
@@ -78,8 +75,6 @@ class Yolov8Node(Node):
 
         self.cv_bridge = CvBridge()
         self.yolo = YOLO(self.model)
-        # Code for Segmentation mode.
-        #self.yolo = YOLO("yolov8m-seg.pt") 
         
         self.yolo.fuse()
         self.yolo.to(self.device)
@@ -105,7 +100,7 @@ class Yolov8Node(Node):
 
 
         self.color_sub = message_filters.Subscriber(
-            self, Image, self.topic_name,
+            self, Image, "topic_name",
             qos_profile=qos_profile_sensor_data
         )
         self.depth_sub = message_filters.Subscriber(
@@ -192,34 +187,6 @@ class Yolov8Node(Node):
 
         return masks_list
 
-    def parse_keypoints(self, results: Results) -> List[KeyPoint2DArray]:
-
-        keypoints_list = []
-
-        points: Keypoints
-        for points in results.keypoints:
-
-            msg_array = KeyPoint2DArray()
-
-            if points.conf is None:
-                continue
-
-            for kp_id, (p, conf) in enumerate(zip(points.xy[0], points.conf[0])):
-
-                if conf >= self.threshold:
-                    msg = KeyPoint2D()
-
-                    msg.id = kp_id + 1
-                    msg.point.x = float(p[0])
-                    msg.point.y = float(p[1])
-                    msg.score = float(conf)
-
-                    msg_array.data.append(msg)
-
-            keypoints_list.append(msg_array)
-
-        return keypoints_list
-
     def process_detections(
         self,
         depth_msg: Image,
@@ -231,11 +198,6 @@ class Yolov8Node(Node):
         if not detections_msg.detections:
             return []
 
-        # transform = self.get_transform(depth_info_msg.header.frame_id)
-
-        # if transform is None:
-        #     return []
-
         new_detections = []
         depth_image = self.cv_bridge.imgmsg_to_cv2(depth_msg)
 
@@ -245,9 +207,6 @@ class Yolov8Node(Node):
 
             if bbox3d is not None:
                 new_detections.append(detection)
-                # bbox3d = Detect3DNode.transform_3d_box(
-                #     bbox3d, transform[0], transform[1])
-                # bbox3d.frame_id = self.target_frame
                 new_detections[-1].bbox3d = bbox3d
 
 
@@ -289,24 +248,20 @@ class Yolov8Node(Node):
 
         # find the z coordinate on the 3D BB
         if detection.mask.data:
-            roi = roi[roi > 0]              ## mask부분만 추출
+            roi = roi[roi > 0]                      ## mask부분만 추출
             bb_center_z_coord = np.median(roi)      ## mask의 depth 값 중에 중앙값 찾기
 
         else:
             bb_center_z_coord = depth_image[int(center_y)][int(       
                 center_x)] / self.depth_image_units_divisor
 
-#                 File "/home/rise/ref_yolov8/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/detect_3d_node.py", line 230, in convert_bb_to_3d
-# [detect_3d_node-3]     bb_center_z_coord = depth_image[int(center_y)][int(       #
-# [detect_3d_node-3] IndexError: index 410 is out of bounds for axis 0 with size 400
 
-
-        z_diff = np.abs(roi - bb_center_z_coord)             ## 중앙값에서 거리가 threshold 내에 있는 값이 유효값이므로 이 값들만 추출. 
+        z_diff = np.abs(roi - bb_center_z_coord)                    ## 중앙값에서 거리가 threshold 내에 있는 값이 유효값이므로 이 값들만 추출. 
         mask_z = z_diff <= self.maximum_detection_threshold         ## mask에서 유의미한 부분만 가져온다. ex) 물체 주변이 masking 되면 이 데이터는 bb_center_z_coord와 차이가 커서 제거 
         if not np.any(mask_z):
             return None
 
-        roi = roi[mask_z]                   ## mask_z는 bool 배열 
+        roi = roi[mask_z]                        ## mask_z는 bool 배열 
         z_min, z_max = np.min(roi), np.max(roi)
         z = (z_max + z_min) / 2                 ## 유효값의 산술평균을 z값으로 결정
 
@@ -316,17 +271,11 @@ class Yolov8Node(Node):
         # project from image to world space
         k = depth_info.k
         px, py, fx, fy = k[2], k[5], k[0], k[4]             ## 카메라 매트릭스 : px,py 중심점; fx, fy 초점거리;
-        x = z * (center_x - px) / fx                ## x는 카메라 중심점으로 부터 거리 [m]
+        x = z * (center_x - px) / fx                        ## x는 카메라 중심점으로 부터 거리 [m]
         y = z * (center_y - py) / fy
         w = z * (size_x / fx)
         h = z * (size_y / fy)
-        
-        # [detect_3d_node-3] [INFO] [1723531589.508180384] [yolo.detect_3d_node]: px : 318.77581787109375
-        # [detect_3d_node-3] fx : 477.2984313964844
-        # [detect_3d_node-3] center_x : 119
-        # [detect_3d_node-3] z : 1.926
-        # [detect_3d_node-3] x : -0.8061376277604096
-        # [detect_3d_node-3] 
+ 
 
 
         # create 3D BB
@@ -359,30 +308,14 @@ class Yolov8Node(Node):
             # convert image + predict
             cv_image = self.cv_bridge.imgmsg_to_cv2(msg)
             
-
-            annotator = Annotator(cv_image, line_width=1, font_size=8)
-
             results = self.yolo.predict(
                 source=cv_image,
                 verbose=False,
                 stream=False,
                 conf=self.threshold,
                 # persist=True,
-                classes = [0,26,28,39,41,56,62,63,67],
+                classes = [0,26,28,39,41,56,62,63,67], 
             )
-            
-
-            #Segmentation with boundary line.
-            # if results[0].boxes.id is not None and results[0].masks is not None:
-            #     result = results[0]
-            #     masks = result.masks.xy
-            #     track_ids = result.boxes.id.int().cpu().tolist()
-            #     clss = result.boxes.cls.tolist()
-            #     confs = result.boxes.conf.tolist()
-            #     for mask, track_id, cls, conf in zip(masks, track_ids, clss, confs):
-            #         if self.yolo.names[cls] == 'person':
-            #             annotator.seg_bbox(mask=mask, mask_color=colors(track_id, True), label=self.yolo.names[cls] + str(round(conf,2)))
-
 
             results: Results = results[0].cpu()
 
@@ -392,9 +325,6 @@ class Yolov8Node(Node):
 
             if results.masks:
                 masks = self.parse_masks(results)
-
-            if results.keypoints:
-                keypoints = self.parse_keypoints(results)
 
             # create detection msgs
             detections_msg = DetectionArray()
@@ -413,25 +343,20 @@ class Yolov8Node(Node):
                 if results.masks:
                     aux_msg.mask = masks[i]
 
-                if results.keypoints:
-                    aux_msg.keypoints = keypoints[i]
-
                 detections_msg.detections.append(aux_msg)
 
             # publish detections
             detections_msg.header = msg.header
 
             # 3d
-            new_detections_msg = DetectionArray()
             segment_centers_msg = SegmentCenters()
-            new_detections_msg.header = detections_msg.header
             segment_centers_msg.header = detections_msg.header
-            new_detections_msg.detections = self.process_detections(
+            detections_msg.detections = self.process_detections(
             depth_msg, depth_info_msg, detections_msg)
 
             # segmentation msg
             
-            for detection in new_detections_msg.detections : 
+            for detection in detections_msg.detections : 
 
                 segment_centers_msg.id.append(detection.class_id)
                 segment_centers_msg.pixel_x.append(int(detection.bbox.center.position.x))
@@ -443,10 +368,7 @@ class Yolov8Node(Node):
                 segment_centers_msg.secs.append(time()) 
 
             self._mot_pub.publish(segment_centers_msg)
-            self._pub.publish(new_detections_msg)
-            
-            # plot for segmentation
-            # cv2.imshow('result',cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
+            self._pub.publish(detections_msg)
 
             del results
             del cv_image
