@@ -99,17 +99,13 @@ class MotNode(Node) :
 		centers_list = []
 		states_list = []
 		msg_id = msg.id
-		msg_pixel_x = msg.pixel_x
-		msg_pixel_y = msg.pixel_y
 		msg_x = msg.x
 		msg_y = msg.y
 		msg_z = msg.z
 		msg_secs = msg.secs
-		# window = (1080,960)
 		window = (960,640)
 		objects = Objects()
 		objects.header.frame_id = self.camera_link            ## modified
-		# self.get_logger().info(f"z Information : {msg.z}\n")  #####
 
 		if len(msg_id)==0: # published none value msg
 			return
@@ -120,9 +116,8 @@ class MotNode(Node) :
 			if msg_x[i]==0 and msg_y[i]==0 and msg_z[i]==0: # Detecting errors in depth camera
 				continue
 			cv_x, cv_z = self.mapping(msg_x[i],msg_z[i],window) 
-			# self.get_logger().info(f"After Mapping : {cv_z}\n")  #####
 			centers_list.append([cv_x, cv_z])
-			states_list.append([msg_x[i], msg_y[i], msg_z[i], msg_secs[i], msg_id[i]])    ## 241104 [msg_x[i], msg_y[i], msg_z[i], msg_secs[i]]
+			states_list.append([msg_x[i], msg_y[i], msg_z[i], msg_secs[i], msg_id[i]])    ## 241104 modified from [msg_x[i], msg_y[i], msg_z[i], msg_secs[i]]
 		centers = np.array(centers_list) 
 		states = np.array(states_list)
 
@@ -136,7 +131,12 @@ class MotNode(Node) :
 		frame = self.createimage(window[0],window[1]) # height, width
 		
 		self.tracker.update(centers, states)
-		# self.get_logger().info(f"MOTA : {self.tracker.calculate_MOTA()}\n")           #33333##########3
+
+		
+		# self.get_logger().info(f"MOTA : {self.tracker.calculate_MOTA()}\n")           
+		
+		# ------------------------------------
+		## drawing trajectory of tracked object
 
 		# draw axis
 		# cv2.line(frame, (window[0]//2,0),(window[0]//2,window[1]), (0,0,0),1) 
@@ -160,6 +160,9 @@ class MotNode(Node) :
 		# 	cv2.line(frame, (window[0]//2-10,window[1]-40-i*100),(window[0]//2+10,window[1]-40-i*100),(0,0,0),1)
 		# 	# indicate a scale of z axis
 		# 	cv2.putText(frame, str(i), (window[0]//2+20,window[1]-40-i*100),0, 0.5, (0,0,0))
+
+		# ---------------------------------------------------------------------------
+
 
 		for j in range(len(self.tracker.tracks)):
 			if (len(self.tracker.tracks[j].trace) > 1):
@@ -210,16 +213,23 @@ class MotNode(Node) :
 					msg.vel.y = -velocity[0]
 					msg.vel.z = velocity[1]
 					objects.objects.append(msg)
+				# --------------------------------------
+				## drawing trajectory cv2 functions
+
 				# cv2.rectangle(frame,cv_tl,cv_br,track_colors[j],1)
 				# cv2.putText(frame,str(self.tracker.tracks[j].trackId), (cv_x-10,cv_z-20),0, 0.5, track_colors[j],2)
 				# cv2.putText(frame,"vel = ("+str(velocity[0])+", "+str(velocity[2])+")", (cv_x+10,cv_z-20),0, 0.5, track_colors[j],2)
 				# cv2.circle(frame,(cv_x,cv_z), 3, (0,0,0),-1)
 
+
 		# cv2.imshow('image',frame)
-		self._pub.publish(objects)
 			
 		# if cv2.waitKey(1) & 0xFF == ord('q'):
 		# 	cv2.destroyAllWindows()
+
+		# ------------------------------------------
+
+		self._pub.publish(objects)
 
 	def forward_view_tracking(self, msg):
 		# SegmentCenters must be a center points of each frame

@@ -35,12 +35,6 @@ class TimeGraphNode(Node):
         self.a_mota_time = 0
         self.b_mota_time = 0
 
-        ## average fps 
-        # self.avg_yolo_rate = 0 
-        # self.avg_yolo_time = 0 
-        # self.avg_mota_rate = 0
-        # self.avg_mota_time = 0
-        ###
 
         self.yolo_i = 50
         self.color_i = 50
@@ -87,12 +81,10 @@ class TimeGraphNode(Node):
         self.present_time = time.time()
         _exe_time = self.present_time - self.previous_time
         exe_time = _exe_time * 1000
-        # self.get_logger().info(f"전 = {self.previous_time} / 현 = {self.present_time}\n") 
         i = self.color_i -50
         a = self.alpha_color_i
 
         y_position = int(self.window[1]-30-exe_time)
-        # self.get_logger().info(f"y_position = {y_position}\n")
         if self.color_i != 50 :
             # 점
             cv2.circle(self.color_frame,(i*2+50,y_position),2,(0,0,0),-1)
@@ -125,12 +117,10 @@ class TimeGraphNode(Node):
         self.b_yolo_time = time.time()
         _exe_time = self.b_yolo_time - self.a_yolo_time
         exe_time = _exe_time*1000   # ms unit
-        # self.get_logger().info(f"yolo = {self.b_yolo_time} / 전 = {self.a_yolo_time}\n")
         i = self.yolo_i - 50
         a = self.alpha_yolo_i
 
         y_position = int(self.window[1]-30-exe_time)
-        # self.get_logger().info(f"y_position = {y_position}\n")
         if self.yolo_i != 50 :
             cv2.circle(self.yolo_frame,(i*2+50,y_position),2,(0,0,255),-1)
             
@@ -143,11 +133,6 @@ class TimeGraphNode(Node):
                         cv2.putText(self.yolo_frame,char,(i*2+50,self.window[1]-20 + n*10),1,0.6,(0,0,0),1)
                 self.yolo_frame_list.append((i+a))
 
-            ## average fps 
-            # self.avg_yolo_time += int(exe_time)
-            # self.avg_yolo_rate = self.avg_yolo_time / (i+a+1)
-            # self.get_logger().info(f"avg yolo rate = {self.avg_yolo_rate}\n")
-            ###
 
         cv2.imshow('yolo frame',self.yolo_frame)
         
@@ -223,11 +208,6 @@ class TimeGraphNode(Node):
                         cv2.putText(self.mota_frame,char,(i*2+50,self.window[1]-20 + n*10),1,0.6,(0,0,0),1)
                 self.mota_frame_list.append(i+a)
 
-            ## average fps 
-            # self.avg_mota_time += int(exe_time)
-            # self.avg_mota_rate = self.avg_mota_time / (i+a+1)
-            # self.get_logger().info(f"avg mota rate = {self.avg_mota_rate}\n")
-            ###
 
         cv2.imshow('MOTA frame',self.mota_frame)
 

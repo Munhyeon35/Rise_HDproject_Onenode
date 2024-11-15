@@ -364,7 +364,6 @@ class Yolov8Node(Node):
                 segment_centers_msg.x.append(detection.bbox3d.center.position.x)
                 segment_centers_msg.y.append(detection.bbox3d.center.position.y)
                 segment_centers_msg.z.append(detection.bbox3d.center.position.z)
-                # segment_centers_msg.secs.append(self.get_clock().now().seconds_nanoseconds()[0])  ### 시간이 고정되어 출력된다.
                 segment_centers_msg.secs.append(time()) 
 
             self._mot_pub.publish(segment_centers_msg)
